@@ -32,6 +32,7 @@ class UserProfileSerializer(ModelSerializer):
     """
     Сериализатор просмотра профиля пользователя.
     """
+
     class Meta:
         model = User
         fields = ["phone", "invite_code", "first_name", "last_name", "invited_by"]
@@ -41,6 +42,7 @@ class UserWithReferralsSerializer(ModelSerializer):
     """
     Сериализатор просмотра профиля пользователя с рефералами.
     """
+
     referrals = SerializerMethodField()
 
     def get_referrals(self, user):
@@ -62,4 +64,5 @@ class InviteCodeSerializer(Serializer):
     """
     Сериализатор инвайт-кода.
     """
+
     code = CharField(max_length=6)
